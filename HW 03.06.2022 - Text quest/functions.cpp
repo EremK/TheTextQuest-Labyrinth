@@ -1,13 +1,13 @@
 #include "header.h"
 #include "functions.h"
 #include "colors.h"
+#include "other.h"
 
-void main_game() 
+void main_game(playerInventory plInventory)
 {
 	//helloAdventurer();
 
-	backstory();
-
+	backstory(plInventory);
 }
 
 void color(int color)

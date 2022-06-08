@@ -1,8 +1,10 @@
-//
+#include "header.h"
+#include "colors.h"
+#include "other.h"
 
 // Functions
 
-void main_game();
+void main_game(playerInventory plInventory);
 
 void color(int color);
 
@@ -12,4 +14,6 @@ void hidecursor();
 
 void helloAdventurer();
 
-void backstory();
+void backstory(playerInventory plInventory);
+
+void initAndCheckInventory(playerInventory plInventory);

@@ -1,3 +1,5 @@
+#pragma once
+
 enum Colors {
     BLACK = 0,
     BLUE = 1,

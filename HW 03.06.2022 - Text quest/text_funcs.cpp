@@ -1,10 +1,7 @@
 #include "header.h"
 #include "functions.h"
 #include "colors.h"
-
-string questions[10] = {
-"",
-};
+#include "other.h"
 
 void helloAdventurer()
 {
@@ -40,7 +37,7 @@ void helloAdventurer()
 	color(WHITE);
 }
 
-void backstory() 
+void backstory(playerInventory plInventory)
 {
 	color(GREEN);
 
@@ -62,10 +59,33 @@ void backstory()
 		<< "\t\t\tnever seen before. They cast a dim blue light over \n"
 		<< "\t\t\tthe room. Thanks to their insignificant light, you\n"
 		<< "\t\t\tthe room. Thanks to their insignificant light, you\n"
-		<< "\t\t\twere in a long corridor with several turns.\n\n\n\n";;
+		<< "\t\t\twere in a long corridor with several turns.\n\n\n\n";
+
+	system("pause");
+	system("cls");
+
+	initAndCheckInventory(plInventory);
 
 	system("pause");
 	system("cls");
 
 	color(WHITE);
+}
+
+void initAndCheckInventory(playerInventory plInventory)
+{
+	srand(time(nullptr));
+	plInventory.hitPoints = 100;
+	plInventory.coins = rand() % 19;
+	plInventory.healPotion = 1;
+	plInventory.bow = 0;
+
+	color(YELLOW);
+
+	cout << "\n\n\n\n\t\t\tBefore moving forward you decided to check\n"
+		<< "\t\t\tyour pockets. You have with you:\n\n";
+
+	cout << "\t\t\tYour HP: " << plInventory.hitPoints << endl;
+	cout << "\n\t\t\tYour coins: " << plInventory.coins << endl;
+	cout << "\n\t\t\tYour heal potions: " << plInventory.healPotion << "\n\n\n\n";
 }
