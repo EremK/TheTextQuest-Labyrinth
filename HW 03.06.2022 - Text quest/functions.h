@@ -4,7 +4,7 @@
 
 // Functions
 
-void main_game(playerInventory plInventory);
+void main_game(playerInventory plInventory, int questionNum);
 
 void color(int color);
 
@@ -17,3 +17,7 @@ void helloAdventurer();
 void backstory(playerInventory plInventory);
 
 void initAndCheckInventory(playerInventory plInventory);
+
+short playersChoice(int questionNum);
+
+void additionalAction(short plChoice, int questionNum);

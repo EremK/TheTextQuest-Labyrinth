@@ -89,3 +89,44 @@ void initAndCheckInventory(playerInventory plInventory)
 	cout << "\n\t\t\tYour coins: " << plInventory.coins << endl;
 	cout << "\n\t\t\tYour heal potions: " << plInventory.healPotion << "\n\n\n\n";
 }
+
+short playersChoice(int questionNum)
+{
+	char key;
+	color(CYAN);
+
+	cout << "\n\n\n\n\t\t\t" << questions[questionNum] << "\n\n";
+		
+	for (int i = 0; i < 4; i++)
+	{
+		cout << "\t\t\t" << i + 1 << ". " << answers[questionNum][i] << endl << endl;
+	}
+
+	while (1)
+	{
+		key = _getch();
+
+		switch (key)
+		{
+		case '1':
+			return 1;
+		case '2':
+			return 2;
+		case '3':
+			return 3;
+		case '4':
+			return 4;
+		}
+	}
+	system("cls");
+}
+
+void additionalAction(short plChoice, int questionNum)
+{
+	if (plChoice == 1 && questionNum == 0)
+	{
+		cout << "\n\n\n\n\t\t\tHello!\n\n";
+	}
+	system("pause");
+	system("cls");
+}

@@ -3,11 +3,16 @@
 #include "colors.h"
 #include "other.h"
 
-void main_game(playerInventory plInventory)
+void main_game(playerInventory plInventory, int questionNum)
 {
 	//helloAdventurer();
 
 	backstory(plInventory);
+
+	for (int i = 0; i < 10; i++)
+	{
+		additionalAction(playersChoice(questionNum), questionNum);
+	}
 }
 
 void color(int color)

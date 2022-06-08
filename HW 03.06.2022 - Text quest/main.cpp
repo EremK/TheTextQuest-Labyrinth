@@ -5,9 +5,10 @@
 
 int main() {
 	playerInventory plInventory;
+	int questionNum = 0;
 
 
-	main_game(plInventory);
+	main_game(plInventory, questionNum);
 
 	
 
