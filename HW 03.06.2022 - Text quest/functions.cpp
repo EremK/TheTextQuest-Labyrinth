@@ -2,6 +2,14 @@
 #include "functions.h"
 #include "colors.h"
 
+void main_game() 
+{
+	//helloAdventurer();
+
+	backstory();
+
+}
+
 void color(int color)
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);

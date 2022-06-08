@@ -4,8 +4,9 @@
 
 int main() {
 
+	main_game();
 
-
+	
 
 	return 0;
 }
