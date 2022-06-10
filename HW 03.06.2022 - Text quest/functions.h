@@ -4,7 +4,7 @@
 
 // Functions
 
-void main_game(playerInventory plInventory, int questionNum);
+void main_game(playerInventory plInventory, playerScore totalSc, int questionNum);
 
 void color(int color);
 
@@ -20,4 +20,8 @@ void initAndCheckInventory(playerInventory plInventory);
 
 short playersChoice(int questionNum);
 
-void additionalAction(short plChoice, int questionNum);
+void additionalAction(playerInventory plInventory, playerScore totalSc, short plChoice, int questionNum);
+
+void chestRoom(playerInventory plInventory, playerScore totalSc);
+
+void printTotalScore(playerInventory plInventory, playerScore totalSc);

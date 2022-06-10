@@ -99,7 +99,10 @@ short playersChoice(int questionNum)
 		
 	for (int i = 0; i < 4; i++)
 	{
-		cout << "\t\t\t" << i + 1 << ". " << answers[questionNum][i] << endl << endl;
+		if (answers[questionNum][i] != "")
+		{
+			cout << "\t\t\t" << i + 1 << ". " << answers[questionNum][i] << endl << endl;
+		}
 	}
 
 	while (1)
@@ -109,24 +112,91 @@ short playersChoice(int questionNum)
 		switch (key)
 		{
 		case '1':
-			return 1;
+			if (answers[questionNum][0] != "")
+			{
+				return 1;
+			}
+			break;
 		case '2':
-			return 2;
+			if (answers[questionNum][1] != "")
+			{
+				return 2;
+			}
+			break;
 		case '3':
-			return 3;
+			if (answers[questionNum][2] != "")
+			{
+				return 3;
+			}
+			break;
 		case '4':
-			return 4;
+			if (answers[questionNum][3] != "")
+			{
+				return 4;
+			}
+			break;
 		}
 	}
 	system("cls");
 }
 
-void additionalAction(short plChoice, int questionNum)
+void additionalAction(playerInventory plInventory, playerScore totalSc, short plChoice, int questionNum)
 {
 	if (plChoice == 1 && questionNum == 0)
 	{
-		cout << "\n\n\n\n\t\t\tHello!\n\n";
+		system("cls");
+		chestRoom(plInventory, totalSc);
 	}
+
+}
+
+void chestRoom(playerInventory plInventory, playerScore totalSc)
+{
+	srand(time(nullptr));
+	cout << "\n\n\n\n\t\t\tYou walk into a gloomy room with a medium-\n"
+		<< "\t\t\tsized chest in the center. Will you open it?\n\n";
+	cout << "\t\t\t1. Yes!\n"
+		<< "\t\t\t2. No!\n";
+
+	while (1)
+	{
+		char key;
+		bool luckCheck = rand() % 1;
+		key = _getch();
+
+		switch (key)
+		{
+		case '1':
+			if (luckCheck == 0)
+			{
+				system("cls");
+				color(RED);
+				cout << "\n\n\n\n\t\t\tWow! Looks like the chest turned out to be \n"
+					<< "\t\t\talive. You became his lunch. Game over!\n\n";
+				color(CYAN);
+				printTotalScore(plInventory, totalSc);
+			}
+			else
+			{
+				plInventory.bow = 1;
+				plInventory.coins += rand() % 30;
+			}
+			break;
+		case '2':
+			break;
+		}
+	}
+
+
+}
+
+void printTotalScore(playerInventory plInventory, playerScore totalSc)
+{
+	totalSc.totalCoins = plInventory.coins;
+	cout << "\n\t\t\tYour final score:\n\n"
+		<< "\t\t\tEarned coins: " << totalSc.totalCoins << endl
+		<< "\t\t\tKilled monsters: " << totalSc.killedMonsters << "\n\n\n\n";
+
 	system("pause");
-	system("cls");
+	exit(0);
 }

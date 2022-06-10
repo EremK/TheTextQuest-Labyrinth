@@ -4,11 +4,12 @@
 #include "other.h"
 
 int main() {
+	playerScore totalSc;
 	playerInventory plInventory;
 	int questionNum = 0;
 
 
-	main_game(plInventory, questionNum);
+	main_game(plInventory, totalSc, questionNum);
 
 	
 
