@@ -396,6 +396,26 @@ void earthDragonRoom(playerInventory* plInventory, playerScore* totalSc, short p
 			<< "\t\t\tthat wasn't so hard ^_^\n\n";
 		printTotalScore(plInventory, totalSc);
 	}
+	else if (plChoice == 1 && plInventory->dogComrade == 1) // 8th POSSIBLE ENDING
+	{
+		color(LIGHTGREEN);
+		cout << "\n\n\n\n\t\t\tThis intimidating and truly powerful earth dragon was\n"
+			<< "\t\t\ttimid and only heard your companion's growl did he\n"
+			<< "\t\t\thide underground. The exit from the labyrinth was not\n"
+			<< "\t\t\tfar behind the dragon's lair, you were going in the\n"
+			<< "\t\t\tright direction!\n\n";
+		printTotalScore(plInventory, totalSc);
+	}
+	else if (plChoice == 1 && plInventory->dogComrade == 0) // 9th POSSIBLE ENDING
+	{
+		system("cls");
+		color(RED);
+		cout << "\n\n\n\n\t\t\tWhen the earth dragon saw that you were alone, it did\n"
+			<< "\t\t\tnot hesitate to send a torrent of its magic at you,\n"
+			<< "\t\t\twhich crushed you with ease. Game over!\n\n";
+		color(CYAN);
+		printTotalScore(plInventory, totalSc);
+	}
 }
 
 void printTotalScore(playerInventory* plInventory, playerScore* totalSc)

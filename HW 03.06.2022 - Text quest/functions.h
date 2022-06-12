@@ -26,4 +26,6 @@ void chestRoom(playerInventory* plInventory, playerScore* totalSc);
 
 void dogRoom(playerInventory* plInventory, playerScore* totalSc, short plChoice);
 
+void earthDragonRoom(playerInventory* plInventory, playerScore* totalSc, short plChoice);
+
 void printTotalScore(playerInventory* plInventory, playerScore* totalSc);
