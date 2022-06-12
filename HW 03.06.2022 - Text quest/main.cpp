@@ -6,10 +6,8 @@
 int main() {
 	playerScore totalSc;
 	playerInventory plInventory;
-	int questionNum = 0;
 
-
-	main_game(plInventory, totalSc, questionNum);
+	main_game(&plInventory, &totalSc);
 
 	
 

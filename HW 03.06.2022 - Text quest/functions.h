@@ -4,7 +4,7 @@
 
 // Functions
 
-void main_game(playerInventory plInventory, playerScore totalSc, int questionNum);
+void main_game(playerInventory* plInventory, playerScore* totalSc);
 
 void color(int color);
 
@@ -14,14 +14,16 @@ void hidecursor();
 
 void helloAdventurer();
 
-void backstory(playerInventory plInventory);
+void backstory(playerInventory* plInventory);
 
-void initAndCheckInventory(playerInventory plInventory);
+void initAndCheckInventory(playerInventory* plInventory);
 
-short playersChoice(int questionNum);
+short playersChoice(int &questionNum);
 
-void additionalAction(playerInventory plInventory, playerScore totalSc, short plChoice, int questionNum);
+void additionalAction(playerInventory* plInventory, playerScore* totalSc, short plChoice, int &questionNum);
 
-void chestRoom(playerInventory plInventory, playerScore totalSc);
+void chestRoom(playerInventory* plInventory, playerScore* totalSc);
 
-void printTotalScore(playerInventory plInventory, playerScore totalSc);
+void dogRoom(playerInventory* plInventory, playerScore* totalSc, short plChoice);
+
+void printTotalScore(playerInventory* plInventory, playerScore* totalSc);
