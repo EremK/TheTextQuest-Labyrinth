@@ -86,14 +86,14 @@ void initAndCheckInventory(playerInventory* plInventory)
 	color(YELLOW);
 	cout << "\n\n\n\n\t\t\tBefore moving forward you decided to check\n"
 		<< "\t\t\tyour pockets. You have with you:\n\n";
-
 	cout << "\t\t\tYour HP: " << plInventory->hitPoints << endl;
-	cout << "\n\t\t\tYour coins: " << plInventory->coins << endl;
 	if (plInventory->bow != 0)
 		cout << "\n\t\t\tBow and arrows: " << plInventory->bow << endl;
 	if (plInventory->auraOfLuck != 0)
 		cout << "\n\t\t\tEndless Luck (passive): " << plInventory->auraOfLuck << endl;
-	cout << "\n\t\t\tYour heal potions: " << plInventory->healPotion << "\n\n\n\n";
+	if (plInventory->healPotion != 0)
+		cout << "\n\t\t\tYour heal potions: " << plInventory->healPotion << endl;
+	cout << "\n\t\t\tYour coins: " << plInventory->coins << "\n\n\n\n";
 }
 
 short playersChoice(int& questionNum)
@@ -172,7 +172,7 @@ void chestRoom(playerInventory* plInventory, playerScore* totalSc)
 	while (1)
 	{
 		char key;
-		short luckCheck = rand() % 3;
+		short luckCheck = rand() % 5;
 		key = _getch();
 
 		switch (key)
@@ -243,7 +243,7 @@ void dogRoom(playerInventory* plInventory, playerScore* totalSc, short plChoice)
 	}
 	case 2:
 	{
-		short luckCheck = rand() % 5;
+		short luckCheck = rand() % 4;
 		if (plInventory->bow == true)
 		{
 			if (luckCheck == 0)
@@ -293,12 +293,108 @@ void dogRoom(playerInventory* plInventory, playerScore* totalSc, short plChoice)
 	}
 	case 3:
 	{
-
+		system("cls");
+		plInventory->healPotion = 0;
+		cout << "\n\n\n\n\t\t\tAs you crept closer, you noticed a deep wound on the\n"
+			<< "\t\t\tcreature's back from the right shoulder blade to the\n"
+			<< "\t\t\tleft thigh. You remembered that you had a powerful\n"
+			<< "\t\t\thealing potion with you. Without thinking too much,\n"
+			<< "\t\t\tyou decided to throw the vial of medicine on the wound...\n\n\n\n";
+		system("pause");
+		system("cls");
+		cout << "\n\n\n\n\t\t\tThe silvery creature woke up and grudgingly roared\n"
+			<< "\t\t\tand began to rise. When it realized that the wound no\n"
+			<< "\t\t\tlonger bothered it, the creature looked at its own back\n"
+			<< "\t\t\tin surprise, walked a few meters in your direction, and\n"
+			<< "\t\t\tthen bowed its massive head to you in gratitude.\n\n\n\n";
+		system("pause");
+		system("cls");
+		cout << "\n\n\n\n\t\t\tAfter saying a few phrases aloud, you realized that it\n"
+			<< "\t\t\tperfectly understands human speech. You offered it to\n"
+			<< "\t\t\tjoin your adventure, and it agreed.\n"
+			<< "\t\t\tin surprise, walked a few meters in your direction, and\n"
+			<< "\t\t\tthen bowed its massive head to you in gratitude.\n\n\n\n";
+		system("pause");
+		system("cls");
+		break;
 	}
 	case 4:
 	{
+		cout << "\n\n\n\n\t\t\tAs you got closer to the silver-haired dog, after\n"
+			<< "\t\t\tpondering for a few minutes, you decided to talk to\n"
+			<< "\t\t\thim. When the creature woke up, it wasn't hard to see\n"
+			<< "\t\t\tits displeasure. But, surprisingly, the creature did not\n"
+			<< "\t\t\tattack you, but just lowered its head sadly and sighed.\n"
+			<< "\t\t\tYou decided to ask if the creature knows how to get\n"
+			<< "\t\t\tout of the maze.\n\n\n\n";
+		system("pause");
+		system("cls");
+		cout << "\n\n\n\n\t\t\tAfter listening to you, the creature headed toward\n"
+			<< "\t\t\tone of the dark corridors, each of which led to\n"
+			<< "\t\t\tthis room.\n"
+			<< "\t\t\tWill you follow him?\n\n";
+		cout << "\t\t\t1. Yes!\n"
+			<< "\t\t\t2. No!\n";
+		while (1)
+		{
+			char key;
+			key = _getch();
 
+			switch (key)
+			{
+			case '1': // 5th POSSIBLE ENDING
+			{
+				color(LIGHTGREEN);
+				cout << "\n\n\n\n\t\t\tYou followed the creature for about 15 minutes\n"
+					<< "\t\t\tthrough dark corridors and have lost count of how\n"
+					<< "\t\t\tmany steps and how many turns you made. Soon you\n"
+					<< "\t\t\treached a place where the wall consisted not of solid\n"
+					<< "\t\t\tstone with ancient drawings on it, as in other parts of\n"
+					<< "\t\t\tthe labyrinth, but of ordinary earth. It took the creature\n"
+					<< "\t\t\tabout two minutes to dig into the ground with its\n"
+					<< "\t\t\tmighty paws, and then the light of the noonday sun\n"
+					<< "\t\t\tappeared. Who would have thought it would end so\n"
+					<< "\t\t\twell and so easily...\n\n\n\n";
+				printTotalScore(plInventory, totalSc);
+			}
+			case '2':
+			{
+				system("cls");
+				cout << "\n\n\n\n\t\t\tInstead of following the creature, you decide to\n"
+					<< "\t\t\tgo into one of the dark corridors alone...\n\n\n\n";
+				break;
+			}
+			}
+			if (key == '1' || key == '2')
+				break;
+		}
+		system("pause");
+		system("cls");
 	}
+	}
+}
+
+void earthDragonRoom(playerInventory* plInventory, playerScore* totalSc, short plChoice)
+{
+	if (plChoice == 2) // 6th POSSIBLE ENDING
+	{
+		system("cls");
+		color(RED);
+		cout << "\n\n\n\n\t\t\tYou panicked, but you didn't consider one thing. There\n"
+			<< "\t\t\tis only one way out of this room, and it is blocked.\n"
+			<< "\t\t\tWhen you realized this, you lost consciousness and\n"
+			<< "\t\t\tnever woke up again for reasons unknown to you...\n\n";
+		color(CYAN);
+		printTotalScore(plInventory, totalSc);
+	}
+	else if (plInventory->auraOfLuck == 1) // 7th POSSIBLE ENDING
+	{
+		color(LIGHTGREEN);
+		cout << "\n\n\n\n\t\t\tHmm, looks like the aura of good luck is working\n"
+			<< "\t\t\t100%. There was no dragon in his lair, and daylight was\n"
+			<< "\t\t\tclearly visible in one of the corridors. Finally a way out,\n"
+			<< "\t\t\tthat wasn't so hard ^_^\n\n";
+		printTotalScore(plInventory, totalSc);
 	}
 }
 
@@ -306,6 +402,7 @@ void printTotalScore(playerInventory* plInventory, playerScore* totalSc)
 {
 	totalSc->totalCoins = plInventory->coins;
 	cout << "\n\t\t\tYour final score:\n\n"
+		<< "\t\t\tTotal score: " << totalSc->totalPointsScore << endl
 		<< "\t\t\tEarned coins: " << totalSc->totalCoins << endl
 		<< "\t\t\tKilled monsters: " << totalSc->killedMonsters << "\n\n\n\n";
 
