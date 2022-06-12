@@ -9,7 +9,7 @@ void main_game(playerInventory* plInventory, playerScore* totalSc)
 
 	backstory(plInventory);
 
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 3; i++)
 	{
 		additionalAction(plInventory, totalSc, playersChoice(i), i);
 	}

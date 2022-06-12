@@ -159,6 +159,11 @@ void additionalAction(playerInventory* plInventory, playerScore* totalSc, short 
 		system("cls");
 		dogRoom(plInventory, totalSc, plChoice);
 	}
+	else if (questionNum == 2)
+	{
+		system("cls");
+		earthDragonRoom(plInventory, totalSc, plChoice);
+	}
 }
 
 void chestRoom(playerInventory* plInventory, playerScore* totalSc)
@@ -192,6 +197,7 @@ void chestRoom(playerInventory* plInventory, playerScore* totalSc)
 				system("cls");
 				plInventory->bow = 1;
 				plInventory->coins += rand() % 30;
+				totalSc->totalPointsScore += 350;
 				cout << "\n\n\n\n\t\t\tYou have found some treasures and weapon inside!\n"
 					<< "\t\t\tYour current inventory:";
 				initAndCheckInventory(plInventory);
@@ -236,6 +242,7 @@ void dogRoom(playerInventory* plInventory, playerScore* totalSc, short plChoice)
 		else
 		{
 			system("cls");
+			totalSc->totalPointsScore += 1000;
 			cout << "\n\n\n\n\t\t\tYou're a natural ninja! You passed by undetected!\n\n\n\n";
 		}
 		system("pause");
@@ -250,6 +257,8 @@ void dogRoom(playerInventory* plInventory, playerScore* totalSc, short plChoice)
 			{
 				system("cls");
 				plInventory->auraOfLuck = 1;
+				totalSc->killedMonsters += 1;
+				totalSc->totalPointsScore += 5000;
 				cout << "\n\n\n\n\t\t\tUnbelievable! Your shooting skills are top notch today!\n"
 					<< "\t\t\tThe arrow fired from a distance of about 75 meters hit\n"
 					<< "\t\t\tthe creature exactly in the eye. Immediately afterwards,\n"
@@ -277,6 +286,7 @@ void dogRoom(playerInventory* plInventory, playerScore* totalSc, short plChoice)
 		{
 			system("cls");
 			color(RED);
+			totalSc->totalPointsScore += 25;
 			cout << "\n\n\n\n\t\t\tDespite the fact that you did not have a bow with you,\n"
 				<< "\t\t\tyou decided to try to defeat the creature in fist\n"
 				<< "\t\t\tcombat. Second place in the district boxing\n"
@@ -295,6 +305,8 @@ void dogRoom(playerInventory* plInventory, playerScore* totalSc, short plChoice)
 	{
 		system("cls");
 		plInventory->healPotion = 0;
+		plInventory->dogComrade = 1;
+		totalSc->totalPointsScore += 1250;
 		cout << "\n\n\n\n\t\t\tAs you crept closer, you noticed a deep wound on the\n"
 			<< "\t\t\tcreature's back from the right shoulder blade to the\n"
 			<< "\t\t\tleft thigh. You remembered that you had a powerful\n"
@@ -320,6 +332,7 @@ void dogRoom(playerInventory* plInventory, playerScore* totalSc, short plChoice)
 	}
 	case 4:
 	{
+		totalSc->totalPointsScore += 750;
 		cout << "\n\n\n\n\t\t\tAs you got closer to the silver-haired dog, after\n"
 			<< "\t\t\tpondering for a few minutes, you decided to talk to\n"
 			<< "\t\t\thim. When the creature woke up, it wasn't hard to see\n"
@@ -344,6 +357,8 @@ void dogRoom(playerInventory* plInventory, playerScore* totalSc, short plChoice)
 			{
 			case '1': // 5th POSSIBLE ENDING
 			{
+				system("cls");
+				totalSc->totalPointsScore += 1500;
 				color(LIGHTGREEN);
 				cout << "\n\n\n\n\t\t\tYou followed the creature for about 15 minutes\n"
 					<< "\t\t\tthrough dark corridors and have lost count of how\n"
@@ -360,6 +375,7 @@ void dogRoom(playerInventory* plInventory, playerScore* totalSc, short plChoice)
 			case '2':
 			{
 				system("cls");
+				totalSc->totalPointsScore += 1250;
 				cout << "\n\n\n\n\t\t\tInstead of following the creature, you decide to\n"
 					<< "\t\t\tgo into one of the dark corridors alone...\n\n\n\n";
 				break;
@@ -390,6 +406,7 @@ void earthDragonRoom(playerInventory* plInventory, playerScore* totalSc, short p
 	else if (plInventory->auraOfLuck == 1) // 7th POSSIBLE ENDING
 	{
 		color(LIGHTGREEN);
+		totalSc->totalPointsScore += 3750;
 		cout << "\n\n\n\n\t\t\tHmm, looks like the aura of good luck is working\n"
 			<< "\t\t\t100%. There was no dragon in his lair, and daylight was\n"
 			<< "\t\t\tclearly visible in one of the corridors. Finally a way out,\n"
@@ -399,6 +416,7 @@ void earthDragonRoom(playerInventory* plInventory, playerScore* totalSc, short p
 	else if (plChoice == 1 && plInventory->dogComrade == 1) // 8th POSSIBLE ENDING
 	{
 		color(LIGHTGREEN);
+		totalSc->totalPointsScore += 3450;
 		cout << "\n\n\n\n\t\t\tThis intimidating and truly powerful earth dragon was\n"
 			<< "\t\t\ttimid and only heard your companion's growl did he\n"
 			<< "\t\t\thide underground. The exit from the labyrinth was not\n"
